@@ -5,8 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RekenRace_Demo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowState="Maximized"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStyle="None">
+    
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpg"
+                        Stretch="Fill" 
+                        Opacity="0.5"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Rekensommen Oefenen"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="10" />
+
+        <!-- Rekensom sectie -->
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Los de volgende som op:"
+                       FontSize="18"
+                       Margin="10" />
+
+            <!-- De som zelf -->
+            <TextBlock x:Name="MathProblemText"
+                       Text="5 + 3 ="
+                       FontSize="32"
+                       FontWeight="Bold"
+                       Margin="10" />
+
+            <!-- Antwoord invoer -->
+            <TextBox x:Name="AnswerInput"
+                     Width="100"
+                     FontSize="20"
+                     Margin="10"
+                     HorizontalContentAlignment="Center" />
+
+            <!-- Feedback label -->
+            <TextBlock x:Name="FeedbackText"
+                       Text=""
+                       FontSize="16"
+                       Foreground="Green"
+                       HorizontalAlignment="Center"
+                       Margin="5" />
+
+        </StackPanel>
+
+        <!-- Knoppen sectie -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="20">
+            <Button x:Name="CheckButton"
+                    Content="Check"
+                    Width="100"
+                    Height="40"
+                    FontSize="16"
+                    Margin="10" />
+            <Button x:Name="NextButton"
+                    Content="Next"
+                    Width="100"
+                    Height="40"
+                    FontSize="16"
+                    Margin="10" />
+            <Button x:Name="StopButton"
+                    Content="Stop"
+                    Width="100"
+                    Height="40"
+                    FontSize="16"
+                    Margin="10"
+                    Click="StopButton_Click" />
+        </StackPanel>
     </Grid>
 </Window>

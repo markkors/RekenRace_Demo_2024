@@ -33,5 +33,10 @@ namespace RekenRace_Demo
                Debug.WriteLine(som.Sum + " = " + som.Solution);
             });
         }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }
