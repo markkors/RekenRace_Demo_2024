@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,34 +23,15 @@ namespace RekenRace_Demo
     public partial class MainWindow : Window
     {
 
-        private List<oSom> sommen = new List<oSom>();
+        
 
         public MainWindow()
         {
             InitializeComponent();
-
-            // Create a new instance of the oSom class
-            
-            Random rnd = new Random();
-
-            // create 10 sums
-            for (int i = 0; i < 10; i++)
+            App.Game.Sums.ForEach(som =>
             {
-                oSom som = new oSom();
-                // Generate a random number between 1 and 10
-
-                som.Part1 = rnd.Next(1, 10);
-                som.Part2 = rnd.Next(1, 10);
-
-                // Generate a random operator
-                string[] operators = { "+", "-", "*", "/" };
-                som.Operator = operators[rnd.Next(0, 4)];
-
-                // add the sum to the collection
-                sommen.Add(som);
-            }
-            
-
+               Debug.WriteLine(som.Sum + " = " + som.Solution);
+            });
         }
     }
 }

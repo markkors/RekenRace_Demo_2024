@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace RekenRace_Demo.Models
 {
-    internal class oSom
+    public class oSom
     {
-        public int Part1 { get; set; }
-        public int Part2 { get; set; }  
+        public float Part1 { get; set; }
+        public float Part2 { get; set; }  
         public string Operator { get; set; }
+
+
+        public string Sum
+        {
+            get
+            {
+                return $"{Part1.ToString()}  {Operator}  {Part2.ToString()}";
+            }
+        }   
 
         public string Solution { 
             get {
-                float result = 0;
+                double result = 0;
                 switch (Operator)
                 {
                     case "*":
@@ -31,7 +40,8 @@ namespace RekenRace_Demo.Models
                         break;
 
                 }
-                return result.ToString();
+                // return result, round to 2 decimals
+                return Math.Round(result, 2).ToString();
 
             }
 
